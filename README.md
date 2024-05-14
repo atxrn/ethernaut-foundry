@@ -1,66 +1,30 @@
-## Foundry
+## Setup
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+### Add the following to `foundry.toml`
 
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```
+eth_rpc_url = 'https://rpc.ankr.com/eth_sepolia'
+etherscan_api_key = '${ETHERSCAN_KEY}'
 ```
 
-### Test
+### Create a `.env` file in the project directory and add the following
 
-```shell
-$ forge test
+```
+PRIVATE_KEY="private key from metamask wallet"
+ETHERSCAN_KEY="etherscan api key"
+MY_ADDRESS="metamask account wallet address"
 ```
 
-### Format
+## Useful commands
 
-```shell
-$ forge fmt
+### Test script
+
+```
+forge script [path to script] -vvvv
 ```
 
-### Gas Snapshots
+### Broadcast script
 
-```shell
-$ forge snapshot
 ```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+forge script [path to script] --broadcast
 ```
